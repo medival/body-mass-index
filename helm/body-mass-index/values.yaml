@@ -10,6 +10,8 @@ image:
   pullPolicy: IfNotPresent
   repository: asia.gcr.io/submission-adi-purnomo
 
+imageURL: asia.gcr.io/submission-adi-purnomo/body-mass-index
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
