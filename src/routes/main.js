@@ -1,27 +1,31 @@
-const express = require('express');
+const express = require("express");
 
 const router = express.Router();
-const { check, validationResult } = require('express-validator');
-const calculateBMI = require('./helper/calculateBMI');
-const classifieBMI = require('./helper/classifieBMI');
+const { check, validationResult } = require("express-validator");
+const calculateBMI = require("../helper/calculateBMI");
+const classifieBMI = require("../helper/classifieBMI");
 
-router.get('/status', (req, res) => {
+router.get("/status", (req, res) => {
   res.status(200);
   res.json({ status: "It's working bro!" });
 });
 
-router.get('/calculate');
+router.get("/calculate");
 
 router.post(
-  '/calculate',
+  "/calculate",
   [
-    check('height').notEmpty().withMessage('Have you fill the height value'),
-    check('height').isNumeric().withMessage('Make sure you fill with correct value (kg)'),
-    check('height').isInt({ min: 1, max: 1000 }).withMessage('Is it possible?'),
+    check("height").notEmpty().withMessage("Have you fill the height value"),
+    check("height")
+      .isNumeric()
+      .withMessage("Make sure you fill with correct value (kg)"),
+    check("height").isInt({ min: 1, max: 1000 }).withMessage("Is it possible?"),
 
-    check('weight').not().isEmpty().withMessage('Have you fill the weight value?'),
-    check('weight').isNumeric().withMessage('Make sure you fill with correct value (kg)'),
-    check('weight').isInt({ min: 1, max: 3000 }).withMessage('Is it possible?'),
+    check("weight").notEmpty().withMessage("Have you fill the weight value?"),
+    check("weight")
+      .isNumeric()
+      .withMessage("Make sure you fill with correct value (kg)"),
+    check("weight").isInt({ min: 1, max: 3000 }).withMessage("Is it possible?"),
   ],
   async (req, res) => {
     try {
@@ -40,9 +44,9 @@ router.post(
       res.json({ bmi: `${resultBMI}`, label: `${label}` });
     } catch (errors) {
       // console.log(errors.message);
-      res.status(500).send('Something went wrong');
+      res.status(500).send("Something went wrong");
     }
-  },
+  }
 );
 
 module.exports = router;
