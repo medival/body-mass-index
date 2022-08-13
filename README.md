@@ -56,10 +56,10 @@ POST /calculate
 
 2. Parameter
 
-   | Parameter   | Type     | Description                      |
-   | :---------: | :-------:| :-----------------------------:  |
-   | `height`    | `integer`| **Required**. Height in cm format|
-   | `weight`    | `integer`| **Required**. Weight in kg format|
+   | Parameter |   Type    |            Description            |
+   | :-------: | :-------: | :-------------------------------: |
+   | `height`  | `integer` | **Required**. Height in cm format |
+   | `weight`  | `integer` | **Required**. Weight in kg format |
 
 3. Sample Request
 
