@@ -1,14 +1,16 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mainRoutes = require('./src/routes/main');
+const express = require("express");
+const bodyParser = require("body-parser");
+const mainRoutes = require("./src/routes/main");
 
 const app = express();
-app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => { res.json({message : 'works'}); });
+app.get("/", (req, res) => {
+  res.json({ message: "works" });
+});
 
-app.use('/', mainRoutes);
+app.use("/", mainRoutes);
 
 const port = 5000;
 app.listen(port, () => {
