@@ -2,11 +2,11 @@ const classifieBMI = function classifierBMI(bmi) {
   let label;
 
   if (bmi < 18.5) {
-    label = 'underweight';
+    label = "underweight";
   } else if (bmi > 25.0) {
-    label = 'overweight';
+    label = "overweight";
   } else {
-    label = 'normal';
+    label = "normal";
   }
 
   return label;
