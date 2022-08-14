@@ -10,4 +10,5 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+      nodePort: {{ .Values.service.nodePort }}
   selector: {{ include "body-mass-index.selectorLabels" . | nindent 4 }}
