@@ -37,9 +37,8 @@ securityContext:
   # runAsUser: 1000
 
 service:
-  type: NodePort
+  type: ClusterIP
   port: 5000
-  nodePort: 31527
 
 containers:
   port: 5000
