@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  become: yes
+  connection: local
+  vars:
+    docker_app_name: body-massage-index
+    docker_image_name: adipurnomo/body-massage-index
+    docker_image_tag: beta
+  tasks:
+    - name: Build images and push from sources
+      docker_image:
+        build:
+          path: ./"{{ docker_app_name }}"
+        name: "{{ docker_image_name }}"
+        tag: "{{ docker_image_tag }}"
+        push: yes
+        source: build
+    - name: Pull image
+      docker_image:
+        name: "{{ docker_image_name }}:{{ docker_image_tag }}"
+        source: pull
+    - name: Run image
+      docker_container:
+        name: "{{ docker_app_name }}"
+        image: "{{ docker_image_name }}:{{ docker_image_tag }}"
+        exposed_ports:
+          - 5000
