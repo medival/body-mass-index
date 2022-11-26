@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: yes
+  connection: local
+  vars:
+    docker_app_name: bmi-app
+    docker_username: adipurnomo
+  tasks:
+    - name: Run image
+      docker_container:
+        name: "{{ docker_app_name }}"
+        image: "{{ docker_username }}/{{ docker_app_name}}:{{IMAGE_TAG}}"
+        published_ports: 0.0.0.0:5000:5000
