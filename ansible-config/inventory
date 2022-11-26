@@ -1,2 +1,2 @@
 [docker-server]
-35.186.144.5   ansible_user=medival
+127.0.0.1   ansible_user=medival
