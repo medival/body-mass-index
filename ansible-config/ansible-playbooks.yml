@@ -24,7 +24,7 @@
     #     name: "{{ docker_username }}:{{ docker_image_tag }}"
     #     source: pull
     - name: Check whoami
-      shell: whoami
+      command: whoami
     - name: Run image
       docker_container:
         name: "{{ docker_app_name }}"
