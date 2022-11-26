@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  become: yes
+  connection: local
+  vars:
+    docker_app_name: bmi-app
+    docker_username: adipurnomo
+  tasks:
+    # - name: Log into DockerHub
+    #   docker_login:
+    #     username: docker
+    #     password: rekcod
+    #     email: docker@docker.io
+    # - name: Build images and push from sources
+    #   docker_image:
+    #     build:
+    #       path: ./"{{ docker_app_name }}"
+    #     name: "{{ docker_username }}"
+    #     tag: "{{ docker_image_tag }}"
+    #     push: yes
+    #     source: build
+    # - name: Pull image
+    #   docker_image:
+    #     name: "{{ docker_username }}:{{ docker_image_tag }}"
+    #     source: pull
+    - name: Run image
+      docker_container:
+        name: "{{ docker_app_name }}"
+        image: "{{ docker_username }}/{{ docker_app_name}}:{{DOCKER_TAG}}"
+        exposed_ports:
+          - 5000
