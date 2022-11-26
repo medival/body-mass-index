@@ -26,6 +26,6 @@
     - name: Run image
       docker_container:
         name: "{{ docker_app_name }}"
-        image: "{{ docker_username }}/{{ docker_app_name}}:{{DOCKER_TAG}}"
-        exposed_ports:
-          - 5000
+        image: "{{ docker_username }}/{{ docker_app_name}}"
+        state: present
+        exposed_ports: 5000
