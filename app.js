@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  res.json({ message: 'works' });
+  res.json({ message: 'Implement CICD using Jenkins' });
 });
 
 app.use('/', mainRoutes);
