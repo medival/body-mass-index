@@ -3,7 +3,7 @@
   become: yes
   connection: local
   vars:
-    docker_app_name: bmi-app
+    docker_app_name: body-mass-index-app
     docker_username: adipurnomo
   tasks:
     - name: Run image
