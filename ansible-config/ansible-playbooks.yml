@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: docker-server
   become: yes
   connection: local
   vars:
