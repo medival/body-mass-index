@@ -12,7 +12,7 @@ router.get('/status', (req, res) => {
 
 router.get('/secret', (req, res) => {
   res.status(200);
-  res.json({ caller: $_USERNAME} });
+  res.json({ caller: $USERNAME} });
 });
 
 router.get('/calculate');
