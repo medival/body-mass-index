@@ -10,6 +10,11 @@ router.get('/status', (req, res) => {
   res.json({ status: "It's working bro!" });
 });
 
+router.get('/secret', (req, res) => {
+  res.status(200);
+  res.json({ caller: "${_USERNAME}" });
+});
+
 router.get('/calculate');
 
 router.post(
