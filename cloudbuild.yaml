@@ -21,7 +21,7 @@ steps:
         "--region",
         "asia-southeast2",
         "--port",
-        "4900",
+        "49000",
         "--allow-unauthenticated",
       ]
 
