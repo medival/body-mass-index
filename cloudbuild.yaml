@@ -5,6 +5,12 @@ steps:
       - "-t"
       - "gcr.io/$PROJECT_ID/$REPO_NAME-$BRANCH_NAME:$SHORT_SHA"
       - .
+  - name: gcr.io/cloud-builders/npm
+    env:
+      - "USERNAME=${_USERNAME}"
+    args:
+      - run
+      - create-env
   - name: gcr.io/cloud-builders/docker
     args:
       - push
@@ -22,8 +28,6 @@ steps:
       - "--port"
       - "5000"
       - "--allow-unauthenticated"
-      - "--set-env-vars"
-      - "USERNAME=${_USERNAME}"
 
 timeout: 1600s
 images:
